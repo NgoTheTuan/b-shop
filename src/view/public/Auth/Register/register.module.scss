@@ -1,0 +1,85 @@
+.pageRegister{
+    margin-bottom: 50px;
+    .register{
+        .titleHead{
+            font-size: 19px;
+            line-height: 22px;
+            font-weight: 400;
+            color: #212B25;
+            text-transform: uppercase;
+            margin-bottom: 27px;
+            text-align: center;
+        }
+    }
+
+    .form{
+        .formText{
+            .text{
+                margin-bottom: 15px;
+                font-size: 14px;
+                color: #363636;
+            }
+            .input{
+                input{
+                    height: 40px;
+                    display: block;
+                    width: 100%;
+                    min-height: 40px;
+                    padding: 10px 15px;
+                    font-size: 14px;
+                    line-height: 1.5;
+                    color: #363636;
+                    background-color: #fff;
+                    background-image: none;
+                    margin-bottom: 15px;
+                    border: 1px solid #EAEBF3;
+                    box-shadow: none;
+                    border-radius: 5px;
+                }
+
+                .error{
+                    color: #f16b6f;
+                    margin-bottom: 15px;
+                    margin-left: 10px;
+                }
+            }
+        }
+    
+        .btn{
+            display: flex;
+            justify-content: center;
+            margin: 15px 0;
+            button{
+                padding: 0 25px;
+                background: #f16b6f;
+                color: #fff;
+                border-radius: 50px;
+                font-size: 14px;
+                height: 40px;
+                line-height: 39px;
+                text-align: center;
+                transition: all 0.3s ease;
+                &:hover{
+                    background: #fff;
+                    color: #f16b6f;
+                    border: 1px solid #f16b6f;
+                }
+            }
+        }
+    }
+
+
+    .link{
+        text-align: right;
+        a{
+            text-decoration: none;
+            color: #363636;
+            &:hover{
+                color: #f16b6f;
+            }
+        }
+    }
+
+
+
+}

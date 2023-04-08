@@ -1,0 +1,90 @@
+.list{
+    .item{
+        .img{
+            width: 100%;
+            height: 200px;
+            img{
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+
+        .title{
+            font-weight: 400;
+            text-transform: none;
+            text-align: left;
+            font-size: 24px;
+            line-height: 30px;
+            margin: 15px 0px 10px 0px;
+            a{
+                font-size: 24px;
+                line-height: 30px;
+                margin-bottom: 5px;
+                overflow: hidden;
+                text-align: left;
+                display: -webkit-box;
+                -webkit-line-clamp: 1;
+                -webkit-box-orient: vertical;
+                height: 30px;
+
+                text-decoration: none;
+                color: #111111;
+                &:hover{
+                    color: #f16b6f;
+                    cursor: pointer;
+                }
+            }
+        }
+
+        .info{
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            padding-bottom: 15px;
+            .author{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin-right: 30px;
+                .icon{
+                    font-size: 16px;
+                    color: #acacac;
+                    margin-right: 5px;
+                }
+                span{
+                    font-size: 14px;
+                    color: #acacac;
+                }
+            }
+
+            .day{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                .icon{
+                    font-size: 16px;
+                    color: #acacac;
+                    margin-right: 5px;
+                }
+                span{
+                    font-size: 14px;
+                    color: #acacac;
+                }
+            }
+        }
+
+        .description{
+            font-size: 14px;
+            line-height: 20px;
+            margin-bottom: 20px;
+            overflow: hidden;
+            text-align: left;
+            display: -webkit-box;
+            -webkit-line-clamp: 4;
+            -webkit-box-orient: vertical;
+            height: 80px;
+        
+        }
+    }   
+}

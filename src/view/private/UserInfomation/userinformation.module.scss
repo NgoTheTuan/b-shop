@@ -1,0 +1,26 @@
+
+.userInformation{
+    margin-bottom: 50px;
+    .listMenu{
+        box-shadow: 0px 0px 11px 0px rgba(225,225,225,0.75);
+        background: #fff;
+        padding: 10px 0;
+        .item{
+            padding: 10px 20px;
+            cursor: pointer;
+            &:hover{
+                background-color: #f5f5f5;
+                color: #f16b6f;
+            }
+        }
+        .active{
+            cursor: default;
+            color: #f16b6f;
+            &:hover{
+                background-color: #ffffff;
+                color: #f16b6f;
+            }
+        }
+    }
+
+}

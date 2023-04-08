@@ -1,0 +1,43 @@
+.sortPagiBar{
+    display: inline-block;
+    padding: 0;
+    margin: 0 0 20px;
+    width: 100%;
+    padding: 13px 20px;
+    background-color: #f3f3f3;
+    border-radius: 5px;
+
+    .sortpage{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .icon{
+            font-size: 24px;
+            color: #f16b6f;
+        }
+
+        select{
+            padding: 5px 15px;
+            outline: none;
+            border: none;
+
+            option{
+                color: #333;
+                border: 1px solid #e5e5e5;
+                font-size: 13px;
+                padding: 0 20px;
+                background-color: #fff;
+                color: #333333;
+                &:hover{
+                    color: #f16b6f;
+                }
+            }
+            &:focus{
+                border: none;
+            }
+        }
+    }
+}
+
+

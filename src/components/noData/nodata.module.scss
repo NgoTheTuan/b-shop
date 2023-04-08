@@ -1,0 +1,17 @@
+.nodata{
+    .boxIcon{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .icon{
+            font-size: 70px;
+        }
+    }
+    .text{
+        padding-top: 10px;
+        text-align: center;
+        font-size: 14px;
+        color: #959595;
+    }
+}

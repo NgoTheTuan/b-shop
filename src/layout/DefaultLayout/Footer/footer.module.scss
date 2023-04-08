@@ -1,0 +1,244 @@
+footer{
+    .midFooter{
+        width: 100%;
+        padding: 25px 0;
+        background: #fafafa;
+        .blocklogo{
+            width: 100%;
+            .logofooter{
+                color: #363636;
+                text-decoration: none;
+                img{
+                    width: auto;
+                    height: auto
+                }
+            }
+        }
+
+        .aboutFooter{
+            display: block;
+            margin: 20px 0;
+            font-size: 13px;
+            width: 100%;
+            color: #363636;
+        }
+
+        .contactfooter{
+            width: 100%;
+            .section{
+                width: 100%;
+                margin-bottom: 10px;
+                display: flex;
+                align-items: center;
+                span{
+                    display: block;
+                    background-color: #f16b6f;
+                    border-radius: 50%;
+                    width: 30px;
+                    height: 30px;
+                    line-height: 29px;
+                    text-align: center;
+                    margin-right: 10px;
+                    float: left;
+                    color: #fff;                    
+                    .icon{
+                        color: #fff;
+                        font-size: 11px;
+                    }
+                }
+                .fright{
+                    flex: 1;
+                    font-size: 13px;
+                    font-weight: 400;
+                    color: #707070;
+                    margin: 0;
+                    padding: 0;
+                    line-height: 30px;
+                    a{
+                        font-size: 13px;
+                        font-weight: 400;
+                        color: #707070;
+                        margin: 0;
+                        padding: 0;
+                        line-height: 30px;
+                        text-decoration: none;
+
+                        &:hover{
+                            color: #f16b6f;
+                        }
+                    }
+                }
+            }
+        }
+
+        // 
+        .searchFooter{
+            display: flex;
+            align-items: center;
+            width: 100%;
+            border-bottom: 1px solid #ebebeb;
+            padding-bottom: 25px;
+            .titleMenuFirst{
+                line-height: 44px;
+                float: left;
+                font-size: 14px;
+                font-weight: 700;
+                text-transform: uppercase;
+                color: #363636;
+                padding-right: 20px;
+                margin: 0;
+            }
+            .searchBar{
+                flex: 1;
+                form{
+                    display: flex;
+                    align-items: center;
+                    input{
+                        padding: 0 20px 0 20px;
+                        width: 100%;
+                        display: block;
+                        margin-bottom: 0;
+                        color: #333;
+                        border-radius: 3px;
+                        font-weight: 400;
+                        border: 1px solid #ebebeb;
+                        height: 45px;
+                        font-style: italic;
+                        background: #fff;
+                        flex:1;
+                    }
+                    .buttonSubscribe{
+                        cursor: pointer;
+                        padding: 10.5px 15px;
+                        background: #f16b6f;
+                        border-radius: 3px;
+                        color: #fff;
+                        border: 0;
+                        outline: 0;
+                        .icon{
+                            font-size: 14px;
+                            color: #fff;
+                        }
+                        .hiddenXs{
+    
+                        }
+                        &:hover{
+                            background: #333;
+
+                        }
+                    }
+                }
+            }
+        }
+
+        .widgetFt{
+            margin: 20px 0 0;
+            .titleMenu{
+                margin: 0;
+                line-height: normal;
+                letter-spacing: 0.5px;
+                font-weight: 700;
+                margin-bottom: 10px;
+                padding-top: 10px;
+                font-size: 14px;
+                color: #363636;
+                position: relative;
+                .collapsed{
+                    text-decoration: none;
+                    cursor: default;
+                    text-transform: uppercase;
+                    position: relative;
+                    color: #363636;
+                }
+
+                &::before{
+                    content: '';
+                    position: absolute;
+                    bottom: -10px;
+                    left: 0;
+                    width: 50px;
+                    height: 1px;
+                    background: #f16b6f;
+                }
+            }
+            .collapse{
+                margin-top: 20px;
+                .listMenu{
+                    line-height: 35px;
+                    padding-left: 0px;
+                    .liMenu{
+                        list-style: none;
+                        margin-bottom: 15px;
+                        font-size: 13px;
+                        line-height: 20px;
+                        a{
+                            color: #707070;
+                            text-decoration: none;
+
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+
+
+    .bgFooter{
+        line-height: 40px;
+        text-align: center;
+        font-size: 14px;
+        position: relative;
+        padding: 5px 0px;
+        background: #362947;
+        width: 100%;
+        .inner{
+            .tablet{
+                display: flex;
+                flex-flow: row;
+                .wsp{
+                    color: #fff;
+                    float: left;
+                    font-size: 13px;
+                    .mobile{
+                        b{
+                            color: #f16b6f;
+                            font-weight: 400;
+                        }
+                        .hiddenXs{
+
+                        }
+                    }
+                    .opacity1{
+                    }
+                    a{
+                        color: #f16b6f;
+                        font-weight: 400;
+                        text-decoration: none;
+                    }
+                }
+                .copyrightLink{
+                    padding: 0;
+                    float: right;
+                    margin: 0;
+                    display: flex;
+                    .menuBottom{
+                        list-style: none;
+                        display: inline-block;
+                        padding-right: 15px;
+                        a{
+                            color: #fff;
+                            font-size: 13px;
+                            text-decoration: none;
+                            &:hover{
+                                color: #f16b6f;
+                            }
+                        }
+
+
+                    }
+                }
+            }
+        }
+    }
+}
