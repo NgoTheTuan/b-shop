@@ -12,6 +12,7 @@ import CartAction from "../../../store/actions/cart";
 import AuthAction from "../../../store/actions/auth";
 import NoData from "../../../components/noData";
 import { number_to_price } from "../../../ultis";
+import logo from "../../../assets/image/logo.png";
 
 function Header() {
   const token = localStorage.getItem("token");
@@ -132,10 +133,7 @@ function Header() {
           <div className="col-lg-3 col-sm-12 px-3 ">
             <div className={styles.logo}>
               <Link to="/" className={styles.logoWrapper}>
-                <img
-                  src="https://bizweb.dktcdn.net/100/091/135/themes/877465/assets/logo.png?1676015083445"
-                  alt=""
-                />
+                <img src={logo} alt="" />
               </Link>
             </div>
           </div>

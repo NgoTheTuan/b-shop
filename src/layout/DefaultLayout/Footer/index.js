@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import { ContactService } from "../../../network/contactService";
 import toast from "react-hot-toast";
+import logo from "../../../assets/image/logo.png";
 
 function Footer() {
   const setting = useSelector((state) => state?.setting);
@@ -42,7 +43,7 @@ function Footer() {
                     className="img-responsive center-base lazyload loaded"
                     width="10"
                     height="10"
-                    src="//bizweb.dktcdn.net/100/091/135/themes/877465/assets/logo.png?1676015083445"
+                    src={logo}
                     alt="logo Perfume Rise"
                   />
                 </Link>
