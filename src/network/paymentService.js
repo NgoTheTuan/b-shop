@@ -16,4 +16,19 @@ export const PaymentService = {
       });
     });
   },
+
+  getByUserId: async (id) => {
+    return new Promise((resolve) => {
+      Request.send({
+        path: `/payment/user-find/${id}`,
+        method: "GET",
+      }).then((res) => {
+        if (res.success) {
+          return resolve(res.data);
+        } else {
+          return resolve(false);
+        }
+      });
+    });
+  },
 };
