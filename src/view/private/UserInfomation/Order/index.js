@@ -70,10 +70,11 @@ function Order() {
                 <tr>
                   <th width={"5%"}>STT</th>
                   <th>Tên người mua</th>
-                  <th width={"20%"}>Tổng tiền</th>
-                  <th width={"15%"}>Trạng thái</th>
-                  <th width={"15%"}>Ngày tạo</th>
-                  <th width={"7%"}></th>
+                  <th width={"12%"}>Phí ship</th>
+                  <th width={"19%"}>Tổng tiền</th>
+                  <th width={"12%"}>Trạng thái</th>
+                  <th width={"12%"}>Ngày tạo</th>
+                  <th width={"6%"}></th>
                 </tr>
               </thead>
 
@@ -94,6 +95,11 @@ function Order() {
                           <td>
                             <span className={styles.name}>
                               {item?.name || ""}
+                            </span>
+                          </td>
+                          <td>
+                            <span className={styles.price}>
+                              {number_to_price(item?.total_ship || 0)}đ
                             </span>
                           </td>
                           <td>

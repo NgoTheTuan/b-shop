@@ -13,6 +13,7 @@ import { useNavigate } from "react-router-dom";
 function Checkout() {
   const navigate = useNavigate();
   const user = useSelector((state) => state.auth);
+  const setting = useSelector((state) => state.setting);
   const [data, setData] = useState([]);
   const [totalMoney, setTotalMoney] = useState(0);
 
@@ -99,8 +100,12 @@ function Checkout() {
           adress: values.address || "",
           note: values.note || "",
           payment_type: "offline",
+          total_ship: Number(setting?.section?.shop_ship || 0),
           products: dataProduct,
-          total_money: totalMoney.toFixed(0) || 0,
+          total_money:
+            (Number(totalMoney) + Number(setting?.section?.shop_ship)).toFixed(
+              0
+            ) || 0,
           status: 0,
         }).then((res) => {
           if (res) {
@@ -291,9 +296,20 @@ function Checkout() {
               </div>
 
               <div className={styles.total}>
+                <div className={styles.name}>Phí ship</div>
+                <div className={styles.totalPrice}>
+                  {number_to_price(Number(setting?.section?.shop_ship || 0))}đ
+                </div>
+              </div>
+
+              <div className={styles.total}>
                 <div className={styles.name}>Tổng cộng</div>
                 <div className={styles.totalPrice}>
-                  {number_to_price(Number(totalMoney))}đ
+                  {number_to_price(
+                    Number(totalMoney) +
+                      Number(setting?.section?.shop_ship || 0)
+                  )}
+                  đ
                 </div>
               </div>
             </div>
