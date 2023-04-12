@@ -79,6 +79,7 @@ footer{
         .searchFooter{
             display: flex;
             align-items: center;
+            flex-wrap: wrap;
             width: 100%;
             border-bottom: 1px solid #ebebeb;
             padding-bottom: 25px;
@@ -244,5 +245,100 @@ footer{
                 }
             }
         }
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    footer{
+
+        .menuFooter{
+            width: 50%;
+        }
+        .midFooter{
+
+            .searchFooter{
+                display: flex;
+                align-items: center;
+                flex-direction: column;
+                width: 100%;
+                border-bottom: 1px solid #ebebeb;
+                padding-bottom: 25px;
+                .titleMenuFirst{
+                    line-height: 44px;
+                    float: left;
+                    font-size: 14px;
+                    font-weight: 700;
+                    text-transform: uppercase;
+                    color: #363636;
+                    padding-right: 20px;
+                    margin: 0;
+                }
+                .searchBar{
+                    flex: 1;
+                    form{
+                        display: flex;
+                        align-items: center;
+                        input{
+                            padding: 0 20px 0 20px;
+                            width: 100%;
+                            display: block;
+                            margin-bottom: 0;
+                            color: #333;
+                            border-radius: 3px;
+                            font-weight: 400;
+                            border: 1px solid #ebebeb;
+                            height: 45px;
+                            font-style: italic;
+                            background: #fff;
+                            flex:1;
+                        }
+                        .buttonSubscribe{
+                            cursor: pointer;
+                            padding: 10.5px 15px;
+                            background: #f16b6f;
+                            border-radius: 3px;
+                            color: #fff;
+                            border: 0;
+                            outline: 0;
+                            margin: 0 10px;
+                            .icon{
+                                font-size: 14px;
+                                color: #fff;
+                            }
+                            .hiddenXs{
+        
+                            }
+                            &:hover{
+                                background: #333;
+    
+                            }
+                        }
+                    }
+                }
+            }
+
+            .widgetFt{
+                .titleMenu{
+                    text-align: center;
+                    &::before{
+                        left: 25%;
+                        width: 50%;
+                    }
+                }
+                .collapse{
+
+                    .listMenu{
+                        .liMenu{
+                            text-align: center;
+                        }
+                    }
+                }
+            }
+    
+
+        }
+    
+    
+    
     }
 }

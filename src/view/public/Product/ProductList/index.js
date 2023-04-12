@@ -147,7 +147,7 @@ function ProductList() {
   return (
     <div className="container">
       <div className="row">
-        <div className="col-lg-3 col-md-3 col-sm-0 col-xs-0">
+        <div className="col-lg-3 col-md-3 col-sm-0 col-xs-0 hiddenMobile">
           <NavbarMenuProduct />
           <div className="pt-4"></div>
           <SidebarProduct />
@@ -201,6 +201,10 @@ function ProductList() {
             totalProducts={products?.length || 0}
             onPageChange={handlePageChange}
           />
+        </div>
+
+        <div className="col-lg-3 col-md-3 col-sm-0 col-xs-0 blockMobile hiddenPC">
+          <SidebarProduct />
         </div>
       </div>
     </div>

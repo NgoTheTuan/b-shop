@@ -53,7 +53,7 @@ function NewsDetail() {
   return (
     <div className="container">
       <div className="row justify-content-center">
-        <div className="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <div className="col-lg-3 col-md-3 col-sm-6 col-xs-12 hiddenMobile">
           <SidebarNews />
           <br />
           <SidebarProduct />
@@ -87,6 +87,10 @@ function NewsDetail() {
               }}
             ></span>
           </div>
+        </div>
+
+        <div className="col-lg-3 col-md-3 col-sm-6 col-xs-12 blockPC blockMobile">
+          <SidebarNews />
         </div>
       </div>
     </div>

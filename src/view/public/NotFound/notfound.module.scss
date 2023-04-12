@@ -1,0 +1,40 @@
+.notFound{
+    padding: 50px 15px;
+    .boxIcon{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .icon{
+            font-size: 150px;
+            color: #ff5349;
+        }
+    }
+    .text{
+        padding-top: 10px;
+        text-align: center;
+        font-size: 30px;
+        font-weight: 700;
+        color: #000000;
+        .iconSad{
+            font-size: 40px;
+            color: #ffc83d;
+        }
+    }
+
+    .goBack{
+        display: flex;
+        justify-content: center;
+        margin-top: 40px;
+        a{
+            background-color: #f05123;
+            color: #fff;
+            outline: none;
+            text-decoration: none;
+            font-size: 16px;
+            border-radius: 999px;
+            padding: 14px 28px;
+        }
+    }
+
+}

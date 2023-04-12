@@ -128,7 +128,7 @@ function Home() {
           <ListProduct selling={true} />
 
           <div className="row">
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div className="col-lg-12 col-md-12 col-sm-12 col-xs-12">
               <div className={styles.bestSaleBanner}>
                 <figure className={styles.imgEffect}>
                   <a href="#" title="Banner 3">

@@ -28,7 +28,7 @@ function About() {
       <div className="row justify-content-center mb-5">
         <div className="col-lg-12 col-md-12 col-sm-12 col-xs-12">
           <div
-            className={styles.map}
+            className={styles.about}
             dangerouslySetInnerHTML={{
               __html: setting?.section?.shop_contact || "",
             }}

@@ -9,7 +9,7 @@ function OrderDetail({ toggleOrderDetail, data }) {
       <div className="mb-3">
         <button
           type="button"
-          class="btn btn-outline-primary"
+          className="btn btn-outline-primary"
           onClick={() => toggleOrderDetail([])}
         >
           Quay lại

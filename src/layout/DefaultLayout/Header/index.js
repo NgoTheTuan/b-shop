@@ -1,10 +1,13 @@
 import styles from "./header.module.scss";
 import { FaSearch } from "react-icons/fa";
 import { BiChevronDown } from "react-icons/bi";
+import { FiMenu, FiUser } from "react-icons/fi";
 import { BsHandbag } from "react-icons/bs";
+import { SlClose } from "react-icons/sl";
+
 import { GoChevronDown, GoChevronRight } from "react-icons/go";
 import { CategoriyService } from "../../../network/categoryService";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { HiOutlineUserCircle } from "react-icons/hi";
@@ -13,6 +16,7 @@ import AuthAction from "../../../store/actions/auth";
 import NoData from "../../../components/noData";
 import { number_to_price } from "../../../ultis";
 import logo from "../../../assets/image/logo.png";
+import NavbarMenuProductMobile from "../../../components/navbarMenuProductMobile";
 
 function Header() {
   const token = localStorage.getItem("token");
@@ -34,6 +38,8 @@ function Header() {
     page: "no",
   };
   const [pages, setPages] = useState(allPages.home);
+  const menuMobile = useRef(null);
+  const menuMobileBg = useRef(null);
 
   useEffect(() => {
     if (location.pathname === "/") {
@@ -51,6 +57,8 @@ function Header() {
     } else {
       setPages(allPages.page);
     }
+
+    closeMenuMobile();
   }, [location.pathname]);
 
   const onClickMenu = (e, id) => {
@@ -126,19 +134,163 @@ function Header() {
     });
   };
 
+  const openMenuMobile = () => {
+    menuMobileBg.current.style.display = "block";
+    menuMobile.current.style.transform = "translateX(0vw)";
+  };
+
+  const closeMenuMobile = () => {
+    // menuMobile.current.style.display = "none";
+    menuMobileBg.current.style.display = "none";
+    menuMobile.current.style.transform = "translateX(-65vw)";
+  };
+
   return (
     <>
       <header className={styles.header}>
-        <div className="container d-flex">
-          <div className="col-lg-3 col-sm-12 px-3 ">
-            <div className={styles.logo}>
-              <Link to="/" className={styles.logoWrapper}>
-                <img src={logo} alt="" />
-              </Link>
+        <div className="container">
+          <div className="row justify-content-between">
+            <div className="col col-sm-4 col-lg-3 col-sm-12 px-3 blockMobile hiddenPC">
+              <div className="h-100 d-flex justify-content-start align-items-center">
+                <FiMenu
+                  style={{ fontSize: "24px", cursor: "pointer" }}
+                  onClick={openMenuMobile}
+                />
+              </div>
+            </div>
+
+            <div className="col col-sm-4 col-xs-4 col-lg-3 col-sm-12 px-3 ">
+              <div className={styles.logo}>
+                <Link to="/" className={styles.logoWrapper}>
+                  <img src={logo} alt="" />
+                </Link>
+              </div>
+            </div>
+
+            <div className="col col-lg-6 col-sm-12 px-3 hiddenMobile">
+              <div className={styles.headerSearch}>
+                <form onSubmit={(e) => onSubmitSearch(e)}>
+                  <input
+                    type="text"
+                    value={textSearch}
+                    onChange={(e) => setTextSearch(e.target.value)}
+                    name="query"
+                    placeholder="Tìm kiếm"
+                  />
+                  <span className={styles.btnSearch}>
+                    <button type="submit">
+                      <FaSearch className={styles.icon} />
+                    </button>
+                  </span>
+                </form>
+              </div>
+            </div>
+
+            <div className="col col-sm-4 col-lg-3 col-sm-0 px-3 ">
+              <div
+                className={`${styles.headerUser} h-100 d-flex justify-content-end align-items-center`}
+              >
+                {token ? (
+                  <div className={styles.avatarUser}>
+                    <Link to={`/user-information/${auth?._id}`}>
+                      {auth?.avatar ? (
+                        <img src={auth?.avatar || ""} alt="" />
+                      ) : (
+                        <HiOutlineUserCircle className={styles.icon} />
+                      )}
+                    </Link>
+
+                    <div className={styles?.userHover}>
+                      <div className={styles.userSetting}>
+                        <Link to={`/user-information/${auth?._id}`}>
+                          Tài khoản
+                        </Link>
+                      </div>
+                      <div className={styles.logout} onClick={onChangeLogout}>
+                        Đăng xuất
+                      </div>
+                    </div>
+                  </div>
+                ) : (
+                  <div className={styles.user}>
+                    <span>
+                      {/* Tài khoản <BiChevronDown className={styles.icon} /> */}
+                      <FiUser style={{ fontSize: "30px", cursor: "pointer" }} />
+                    </span>
+                    <div className={styles.hoverUser}>
+                      <Link to="/login">ĐĂNG NHẬP</Link>
+                      <Link to="/register">ĐĂNG KÝ</Link>
+                    </div>
+                  </div>
+                )}
+
+                <div className={styles.cart}>
+                  <Link className={styles.cartIcon} to="/cart">
+                    <BsHandbag className={styles.icon} />
+                    {cart?.quantity > 0 && <span>{cart?.quantity}</span>}
+
+                    <div className={styles.hoverCart}>
+                      <div className={styles.wrapper}>
+                        <div className={styles.list}>
+                          {dataCartHover?.length > 0 ? (
+                            dataCartHover.map((item) => {
+                              return (
+                                <div className={styles.item} key={item?._id}>
+                                  <Link to={`/product-detail/${item?._id}`}>
+                                    <img
+                                      src={item?.image || ""}
+                                      alt=""
+                                      className={styles.img}
+                                    />
+                                  </Link>
+
+                                  <div className={styles.itemText}>
+                                    <Link
+                                      className={styles.title}
+                                      to={`/product-detail/${item?._id}`}
+                                    >
+                                      {item?.name || ""}
+                                    </Link>
+                                    <div className={styles.price}>
+                                      {item?.discount > 0
+                                        ? number_to_price(
+                                            Number(item?.price) -
+                                              Number(item?.price) *
+                                                (Number(item?.discount) / 100)
+                                          )
+                                        : number_to_price(Number(item?.price))}
+                                      đ
+                                    </div>
+                                  </div>
+                                </div>
+                              );
+                            })
+                          ) : (
+                            <>
+                              <NoData />
+                            </>
+                          )}
+                        </div>
+
+                        <div className={styles.btn}>
+                          <Link to="/cart" className={styles.btnCart}>
+                            GIỎ HÀNG
+                          </Link>
+
+                          <Link to="/checkout" className={styles.btnPayment}>
+                            THANH TOÁN
+                          </Link>
+                        </div>
+                      </div>
+                    </div>
+                  </Link>
+                </div>
+              </div>
             </div>
           </div>
-
-          <div className="col-lg-6 col-sm-12 px-3">
+        </div>
+        <div className="container blockMobile hiddenPC">
+          <div className="col-lg-12 col-sm-12 px-3 ">
             <div className={styles.headerSearch}>
               <form onSubmit={(e) => onSubmitSearch(e)}>
                 <input
@@ -156,108 +308,9 @@ function Header() {
               </form>
             </div>
           </div>
-
-          <div className="col-lg-3 col-sm-0 px-3">
-            <div className={styles.headerUser}>
-              {token ? (
-                <div className={styles.avatarUser}>
-                  <Link to={`/user-information/${auth?._id}`}>
-                    {auth?.avatar ? (
-                      <img src={auth?.avatar || ""} alt="" />
-                    ) : (
-                      <HiOutlineUserCircle className={styles.icon} />
-                    )}
-                  </Link>
-
-                  <div className={styles?.userHover}>
-                    <div className={styles.userSetting}>
-                      <Link to={`/user-information/${auth?._id}`}>
-                        Tài khoản
-                      </Link>
-                    </div>
-                    <div className={styles.logout} onClick={onChangeLogout}>
-                      Đăng xuất
-                    </div>
-                  </div>
-                </div>
-              ) : (
-                <div className={styles.user}>
-                  <span>
-                    Tài khoản <BiChevronDown className={styles.icon} />
-                  </span>
-                  <div className={styles.hoverUser}>
-                    <Link to="/login">ĐĂNG NHẬP</Link>
-                    <Link to="/register">ĐĂNG KÝ</Link>
-                  </div>
-                </div>
-              )}
-
-              <div className={styles.cart}>
-                <Link className={styles.cartIcon} to="/cart">
-                  <BsHandbag className={styles.icon} />
-                  {cart?.quantity > 0 && <span>{cart?.quantity}</span>}
-
-                  <div className={styles.hoverCart}>
-                    <div className={styles.wrapper}>
-                      <div className={styles.list}>
-                        {dataCartHover?.length > 0 ? (
-                          dataCartHover.map((item) => {
-                            return (
-                              <div className={styles.item} key={item?._id}>
-                                <Link to={`/product-detail/${item?._id}`}>
-                                  <img
-                                    src={item?.image || ""}
-                                    alt=""
-                                    className={styles.img}
-                                  />
-                                </Link>
-
-                                <div className={styles.itemText}>
-                                  <Link
-                                    className={styles.title}
-                                    to={`/product-detail/${item?._id}`}
-                                  >
-                                    {item?.name || ""}
-                                  </Link>
-                                  <div className={styles.price}>
-                                    {item?.discount > 0
-                                      ? number_to_price(
-                                          Number(item?.price) -
-                                            Number(item?.price) *
-                                              (Number(item?.discount) / 100)
-                                        )
-                                      : number_to_price(Number(item?.price))}
-                                    đ
-                                  </div>
-                                </div>
-                              </div>
-                            );
-                          })
-                        ) : (
-                          <>
-                            <NoData />
-                          </>
-                        )}
-                      </div>
-
-                      <div className={styles.btn}>
-                        <Link to="/cart" className={styles.btnCart}>
-                          GIỎ HÀNG
-                        </Link>
-
-                        <Link to="/checkout" className={styles.btnPayment}>
-                          THANH TOÁN
-                        </Link>
-                      </div>
-                    </div>
-                  </div>
-                </Link>
-              </div>
-            </div>
-          </div>
         </div>
       </header>
-      <div className={styles.headerMenu}>
+      <div className={`${styles.headerMenu} hiddenMobile`}>
         <div className="container">
           <div className="row">
             <nav className={styles.headerNav}>
@@ -383,6 +436,24 @@ function Header() {
           </div>
         </div>
       </div>
+
+      <div
+        className={`${styles.menuMobile} hiddenPC blockMobile `}
+        ref={menuMobile}
+      >
+        <div className={styles.close}>
+          <SlClose className={styles.icon} onClick={closeMenuMobile} />
+        </div>
+
+        <div className={styles.menu}>
+          <NavbarMenuProductMobile />
+        </div>
+      </div>
+      <div
+        className={`${styles.menuBgMobile} hiddenPC blockMobile`}
+        ref={menuMobileBg}
+        onClick={closeMenuMobile}
+      ></div>
     </>
   );
 }

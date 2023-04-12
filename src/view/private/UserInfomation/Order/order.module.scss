@@ -183,3 +183,14 @@
       }
       
 }
+
+@media only screen and (max-width: 600px) {
+    .tableOrder{
+        margin-bottom: 20px;
+        overflow-x: scroll;
+        table {
+            width: 800px;
+          }
+          
+    }
+}

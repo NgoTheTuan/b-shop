@@ -150,16 +150,15 @@ function Order() {
                     )}
               </tbody>
             </table>
-
-            {order?.length > 0 && (
-              <Pagination
-                currentPage={page + 1}
-                productsPerPage={rowsPerPage}
-                totalProducts={order?.length || 0}
-                onPageChange={handlePageChange}
-              />
-            )}
           </div>
+          {order?.length > 0 && (
+            <Pagination
+              currentPage={page + 1}
+              productsPerPage={rowsPerPage}
+              totalProducts={order?.length || 0}
+              onPageChange={handlePageChange}
+            />
+          )}
         </>
       )}
     </div>

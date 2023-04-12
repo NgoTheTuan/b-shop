@@ -10,3 +10,24 @@
     font-weight: 700;
     padding-left: 10px;
 }
+
+
+@media only screen and (max-width: 600px) {
+    .hiddenMobile{
+        display: none;
+    }
+
+    .blockMobile{
+        display: block;
+    }
+}
+
+@media only screen and (min-width: 600px) {
+    .hiddenPC{
+        display: none;
+    }
+
+    .blockPC{
+        display: block;
+    }
+}

@@ -10,6 +10,9 @@ import { Link } from "react-router-dom";
 import { HiLocationMarker } from "react-icons/hi";
 import { IoMdMail } from "react-icons/io";
 import { BsFillTelephoneFill } from "react-icons/bs";
+
+import logo from "../../../assets/image/logo.png";
+
 function Contact() {
   const setting = useSelector((state) => state.setting);
   const [map, setMap] = useState();
@@ -145,14 +148,14 @@ function Contact() {
             </div>
           </form>
         </div>
-        <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+        <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12 hiddenMobile">
           <div className={styles.blocklogo}>
             <Link to="/" className={styles.logofooter}>
               <img
                 className="img-responsive center-base lazyload loaded"
                 width="10"
                 height="10"
-                src="//bizweb.dktcdn.net/100/091/135/themes/877465/assets/logo.png?1676015083445"
+                src={logo}
                 alt="logo Perfume Rise"
               />
             </Link>

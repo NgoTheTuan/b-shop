@@ -55,27 +55,7 @@
             }
         }
     
-        .btn{
-            display: flex;
-            justify-content: flex-end;
-            margin: 30px 0;
-            button{
-                padding: 0 25px;
-                background: #f16b6f;
-                color: #fff;
-                border-radius: 50px;
-                font-size: 14px;
-                height: 40px;
-                line-height: 39px;
-                text-align: center;
-                transition: all 0.3s ease;
-                &:hover{
-                    background: #fff;
-                    color: #f16b6f;
-                    border: 1px solid #f16b6f;
-                }
-            }
-        }
+
     }
 
     .custom{
@@ -171,6 +151,28 @@
             .totalPrice{
                 font-size: 18px;
                 color: #f16b6f;
+            }
+        }
+    }
+
+    .btn{
+        display: flex;
+        justify-content: center;
+        margin: 30px 0;
+        button{
+            padding: 0 25px;
+            background: #f16b6f;
+            color: #fff;
+            border-radius: 50px;
+            font-size: 14px;
+            height: 40px;
+            line-height: 39px;
+            text-align: center;
+            transition: all 0.3s ease;
+            &:hover{
+                background: #fff;
+                color: #f16b6f;
+                border: 1px solid #f16b6f;
             }
         }
     }

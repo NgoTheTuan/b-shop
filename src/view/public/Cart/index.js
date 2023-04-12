@@ -207,7 +207,7 @@ function Cart() {
               <td colSpan="2">{number_to_price(Number(totalMoney))}đ</td>
             </tr>
 
-            <tr>
+            <tr className="hiddenMobile">
               <td colSpan="6">
                 <div className={styles.btn}>
                   <Link to="/product">
@@ -225,6 +225,19 @@ function Cart() {
             </tr>
           </tfoot>
         </table>
+      </div>
+
+      <div className={styles.btnMobile}>
+        <div className={styles.btn}>
+          <Link to="/product">
+            <button className={styles.btnProduct}>Tiếp tục mua hàng</button>
+          </Link>
+          {data?.length > 0 && (
+            <Link to="/checkout">
+              <button className={styles.btnCheckout}>Thanh toán</button>
+            </Link>
+          )}
+        </div>
       </div>
     </div>
   );

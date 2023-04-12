@@ -5,7 +5,6 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Fragment } from "react";
 import "./style/index.scss";
 import { Toaster } from "react-hot-toast";
-
 function App() {
   return (
     <>

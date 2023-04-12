@@ -111,131 +111,142 @@ function Footer() {
                     </div>
                   </div>
                 </div>
-
-                <div className="col-xs-12 col-sm-3 col-md-3 col-lg-3">
-                  <div className={styles.widgetFt}>
-                    <h4 className={styles.titleMenu}>
-                      <a href="/" className={styles.collapsed}>
-                        Tài khoản
-                      </a>
-                    </h4>
-                    <div className={styles.collapse}>
-                      <ul className={styles.listMenu}>
-                        <li className={styles.liMenu}>
-                          <Link to="/">Trang chủ</Link>
-                        </li>
-                        <li className={styles.liMenu}>
-                          <Link to="/about">Giới thiệu</Link>
-                        </li>
-                        <li className={styles.liMenu}>
-                          <Link to="/product">Sản phẩm</Link>
-                        </li>
-                        <li className={styles.liMenu}>
-                          <Link to="/news">Tin tức</Link>
-                        </li>
-                        <li className={styles.liMenu}>
-                          <Link to="/map">Bản đồ</Link>
-                        </li>
-                        <li className={styles.liMenu}>
-                          <Link to="/contact">Liên hệ</Link>
-                        </li>
-                      </ul>
+                <div className="container">
+                  <div className="row">
+                    <div
+                      className={`col-lg-3 col-md-6 col-sm-6 ${styles.menuFooter}`}
+                    >
+                      <div className={styles.widgetFt}>
+                        <h4 className={styles.titleMenu}>
+                          <a href="/" className={styles.collapsed}>
+                            Tài khoản
+                          </a>
+                        </h4>
+                        <div className={styles.collapse}>
+                          <ul className={styles.listMenu}>
+                            <li className={styles.liMenu}>
+                              <Link to="/">Trang chủ</Link>
+                            </li>
+                            <li className={styles.liMenu}>
+                              <Link to="/about">Giới thiệu</Link>
+                            </li>
+                            <li className={styles.liMenu}>
+                              <Link to="/product">Sản phẩm</Link>
+                            </li>
+                            <li className={styles.liMenu}>
+                              <Link to="/news">Tin tức</Link>
+                            </li>
+                            <li className={styles.liMenu}>
+                              <Link to="/map">Bản đồ</Link>
+                            </li>
+                            <li className={styles.liMenu}>
+                              <Link to="/contact">Liên hệ</Link>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                </div>
 
-                <div className="col-xs-12 col-sm-3 col-md-3 col-lg-3">
-                  <div className={styles.widgetFt}>
-                    <h4 className={styles.titleMenu}>
-                      <a href="/" className={styles.collapsed}>
-                        CHÍNH SÁCH
-                      </a>
-                    </h4>
-                    <div className={styles.collapse}>
-                      <ul className={styles.listMenu}>
-                        <li className={styles.liMenu}>
-                          <Link to="/">Trang chủ</Link>
-                        </li>
-                        <li className={styles.liMenu}>
-                          <Link to="/about">Giới thiệu</Link>
-                        </li>
-                        <li className={styles.liMenu}>
-                          <Link to="/product">Sản phẩm</Link>
-                        </li>
-                        <li className={styles.liMenu}>
-                          <Link to="/news">Tin tức</Link>
-                        </li>
-                        <li className={styles.liMenu}>
-                          <Link to="/map">Bản đồ</Link>
-                        </li>
-                        <li className={styles.liMenu}>
-                          <Link to="/contact">Liên hệ</Link>
-                        </li>
-                      </ul>
+                    <div
+                      className={`col-lg-3 col-md-6 col-sm-6 ${styles.menuFooter}`}
+                    >
+                      <div className={styles.widgetFt}>
+                        <h4 className={styles.titleMenu}>
+                          <a href="/" className={styles.collapsed}>
+                            CHÍNH SÁCH
+                          </a>
+                        </h4>
+                        <div className={styles.collapse}>
+                          <ul className={styles.listMenu}>
+                            <li className={styles.liMenu}>
+                              <Link to="/">Trang chủ</Link>
+                            </li>
+                            <li className={styles.liMenu}>
+                              <Link to="/about">Giới thiệu</Link>
+                            </li>
+                            <li className={styles.liMenu}>
+                              <Link to="/product">Sản phẩm</Link>
+                            </li>
+                            <li className={styles.liMenu}>
+                              <Link to="/news">Tin tức</Link>
+                            </li>
+                            <li className={styles.liMenu}>
+                              <Link to="/map">Bản đồ</Link>
+                            </li>
+                            <li className={styles.liMenu}>
+                              <Link to="/contact">Liên hệ</Link>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                </div>
 
-                <div className="col-xs-12 col-sm-3 col-md-3 col-lg-3">
-                  <div className={styles.widgetFt}>
-                    <h4 className={styles.titleMenu}>
-                      <a href="/" className={styles.collapsed}>
-                        ĐIỀU KHOẢN
-                      </a>
-                    </h4>
-                    <div className={styles.collapse}>
-                      <ul className={styles.listMenu}>
-                        <li className={styles.liMenu}>
-                          <Link to="/">Trang chủ</Link>
-                        </li>
-                        <li className={styles.liMenu}>
-                          <Link to="/about">Giới thiệu</Link>
-                        </li>
-                        <li className={styles.liMenu}>
-                          <Link to="/product">Sản phẩm</Link>
-                        </li>
-                        <li className={styles.liMenu}>
-                          <Link to="/news">Tin tức</Link>
-                        </li>
-                        <li className={styles.liMenu}>
-                          <Link to="/map">Bản đồ</Link>
-                        </li>
-                        <li className={styles.liMenu}>
-                          <Link to="/contact">Liên hệ</Link>
-                        </li>
-                      </ul>
+                    <div
+                      className={`col-lg-3 col-md-6 col-sm-6 ${styles.menuFooter}`}
+                    >
+                      <div className={styles.widgetFt}>
+                        <h4 className={styles.titleMenu}>
+                          <a href="/" className={styles.collapsed}>
+                            ĐIỀU KHOẢN
+                          </a>
+                        </h4>
+                        <div className={styles.collapse}>
+                          <ul className={styles.listMenu}>
+                            <li className={styles.liMenu}>
+                              <Link to="/">Trang chủ</Link>
+                            </li>
+                            <li className={styles.liMenu}>
+                              <Link to="/about">Giới thiệu</Link>
+                            </li>
+                            <li className={styles.liMenu}>
+                              <Link to="/product">Sản phẩm</Link>
+                            </li>
+                            <li className={styles.liMenu}>
+                              <Link to="/news">Tin tức</Link>
+                            </li>
+                            <li className={styles.liMenu}>
+                              <Link to="/map">Bản đồ</Link>
+                            </li>
+                            <li className={styles.liMenu}>
+                              <Link to="/contact">Liên hệ</Link>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                </div>
 
-                <div className="col-xs-12 col-sm-3 col-md-3 col-lg-3">
-                  <div className={styles.widgetFt}>
-                    <h4 className={styles.titleMenu}>
-                      <a href="/" className={styles.collapsed}>
-                        HƯỚNG DẪN
-                      </a>
-                    </h4>
-                    <div className={styles.collapse}>
-                      <ul className={styles.listMenu}>
-                        <li className={styles.liMenu}>
-                          <Link to="/">Trang chủ</Link>
-                        </li>
-                        <li className={styles.liMenu}>
-                          <Link to="/about">Giới thiệu</Link>
-                        </li>
-                        <li className={styles.liMenu}>
-                          <Link to="/product">Sản phẩm</Link>
-                        </li>
-                        <li className={styles.liMenu}>
-                          <Link to="/news">Tin tức</Link>
-                        </li>
-                        <li className={styles.liMenu}>
-                          <Link to="/map">Bản đồ</Link>
-                        </li>
-                        <li className={styles.liMenu}>
-                          <Link to="/contact">Liên hệ</Link>
-                        </li>
-                      </ul>
+                    <div
+                      className={`col-lg-3 col-md-6 col-sm-6 ${styles.menuFooter}`}
+                    >
+                      <div className={styles.widgetFt}>
+                        <h4 className={styles.titleMenu}>
+                          <a href="/" className={styles.collapsed}>
+                            HƯỚNG DẪN
+                          </a>
+                        </h4>
+                        <div className={styles.collapse}>
+                          <ul className={styles.listMenu}>
+                            <li className={styles.liMenu}>
+                              <Link to="/">Trang chủ</Link>
+                            </li>
+                            <li className={styles.liMenu}>
+                              <Link to="/about">Giới thiệu</Link>
+                            </li>
+                            <li className={styles.liMenu}>
+                              <Link to="/product">Sản phẩm</Link>
+                            </li>
+                            <li className={styles.liMenu}>
+                              <Link to="/news">Tin tức</Link>
+                            </li>
+                            <li className={styles.liMenu}>
+                              <Link to="/map">Bản đồ</Link>
+                            </li>
+                            <li className={styles.liMenu}>
+                              <Link to="/contact">Liên hệ</Link>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

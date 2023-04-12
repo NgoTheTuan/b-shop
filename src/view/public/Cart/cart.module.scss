@@ -181,10 +181,75 @@
       
 }
 
+.btnMobile{
+    display: none;
+    margin-bottom: 30px;
+    .btn{
+        padding: 15px 15px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .btnProduct{
+            border: 2px solid #959595;
+            color: #333;
+            background: #fff;
+            font-size: 14px;
+            font-weight: 400;
+            border-radius: 3px;
+            line-height: 38px;
+            padding: 0 20px;
+            width: auto;
+            transition: all 0.3s ease;
+            &:hover{
+                background-color: #f16b6f;
+                border: 2px solid #f16b6f;
+                color: #fff;
+            }
+        }
+        .btnCheckout{
+            color: #fff;
+            font-size: 16px;
+            font-weight: 400;
+            border-radius: 3px;
+            padding: 0px 20px;
+            height: 40px;
+            line-height: 40px;
+            text-decoration: none;
+            position: relative;
+            border: none;
+            display: inline-block;
+            overflow: hidden;
+            text-align: center;
+            background: #f16b6f;
+            text-transform: uppercase;
+            &:hover{
+                background-color: #fff;
+                border: 1px solid #f16b6f;
+                color: #f16b6f;
+            }
+
+        }
+    }
+}
+
 input[type=number]::-webkit-inner-spin-button, 
 input[type=number]::-webkit-outer-spin-button { 
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
     margin: 0; 
+}
+
+
+@media only screen and (max-width: 600px) {
+    .tableCart{
+        overflow-x: scroll;
+        table {
+            width: 800px;
+          }
+          
+    }
+    .btnMobile{
+        display: block;
+    }
 }

@@ -166,7 +166,7 @@ function Checkout() {
           <div className="col-lg-7 col-md-7 col-sm-12 col-xs-12">
             <div className={styles.title}>Thông tin người nhận</div>
 
-            <form noValidate onSubmit={handleSubmit} className={styles.form}>
+            <form noValidate className={styles.form}>
               <div className={styles.formText}>
                 <div className={styles.text}>Tên người nhận *</div>
                 <div className={styles.input}>
@@ -253,10 +253,6 @@ function Checkout() {
                   />
                 </div>
               </div>
-
-              <div className={styles.btn}>
-                <button type="submit">Thanh toán</button>
-              </div>
             </form>
           </div>
           <div className="col-lg-5 col-md-5 col-sm-12 col-xs-12">
@@ -312,6 +308,9 @@ function Checkout() {
                   đ
                 </div>
               </div>
+            </div>
+            <div className={styles.btn}>
+              <button onClick={handleSubmit}>Thanh toán</button>
             </div>
           </div>
         </div>
