@@ -9,7 +9,7 @@ function CartReducer(state = initalState, action) {
   switch (action.type) {
     case CartAction.CART_UPDATE: {
       const dataCart = JSON.parse(
-        window.localStorage.getItem("user-cart") || "[]"
+        window.localStorage.getItem("user-cart-b-shop") || "[]"
       );
 
       return {

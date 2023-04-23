@@ -24,7 +24,7 @@ function send({
     if (newUrl) {
       url = `${newUrl}${getQueryString(query)}`;
     }
-    const dataString = window.localStorage.getItem("token");
+    const dataString = window.localStorage.getItem("token-b-shop");
     if (dataString) {
       const newData = JSON.parse(dataString || "{}");
       headers.authorization = `Bearer ${token ? token : newData}`;
@@ -52,12 +52,12 @@ function send({
           const { message: data } = result;
 
           if (response.status === 401 || data === 403) {
-            window.localStorage.removeItem("user_data");
+            window.localStorage.removeItem("user_data-b-shop");
             setTimeout(() => {
               window.location.href = "/";
             }, 500);
           } else if (response.status === 505) {
-            window.localStorage.removeItem("user_data");
+            window.localStorage.removeItem("user_data-b-shop");
             setTimeout(() => {
               window.location.href = "/";
             }, 500);

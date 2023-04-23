@@ -19,7 +19,7 @@ import logo from "../../../assets/image/logo.png";
 import NavbarMenuProductMobile from "../../../components/navbarMenuProductMobile";
 
 function Header() {
-  const token = localStorage.getItem("token");
+  const token = localStorage.getItem("token-b-shop");
   const auth = useSelector((state) => state.auth);
   const cart = useSelector((state) => state.cart);
   const [dataCartHover, setDataCartHover] = useState([]);

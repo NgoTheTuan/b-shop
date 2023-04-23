@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 
 function PublicRoute({ children }) {
-  const token = localStorage.getItem("token");
+  const token = localStorage.getItem("token-b-shop");
   const location = useLocation();
   const navigate = useNavigate();
 

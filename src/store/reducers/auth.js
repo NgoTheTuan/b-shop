@@ -1,16 +1,18 @@
 import authAction from "../actions/auth";
 
-const initState = JSON.parse(window.localStorage.getItem("user") || "{}");
+const initState = JSON.parse(
+  window.localStorage.getItem("user-b-shop") || "{}"
+);
 
 function userReducer(state = initState, action) {
   switch (action.type) {
     case authAction.LOGIN: {
       window.localStorage.setItem(
-        "token",
+        "token-b-shop",
         JSON.stringify(action.payload.token || "")
       );
       window.localStorage.setItem(
-        "user",
+        "user-b-shop",
         JSON.stringify(action.payload.user || "{}")
       );
 
@@ -21,8 +23,8 @@ function userReducer(state = initState, action) {
     }
 
     case authAction.LOGOUT: {
-      window.localStorage.removeItem("token");
-      window.localStorage.removeItem("user");
+      window.localStorage.removeItem("token-b-shop");
+      window.localStorage.removeItem("user-b-shop");
 
       return {};
     }

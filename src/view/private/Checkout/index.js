@@ -33,8 +33,8 @@ function Checkout() {
   ];
 
   useEffect(() => {
-    if (window.localStorage.getItem("user-cart") !== null) {
-      const dataCart = window.localStorage.getItem("user-cart");
+    if (window.localStorage.getItem("user-cart-b-shop") !== null) {
+      const dataCart = window.localStorage.getItem("user-cart-b-shop");
       setData(JSON.parse(dataCart || "[]"));
       handleTotalMoney(JSON.parse(dataCart || "[]"));
     }
@@ -88,6 +88,7 @@ function Checkout() {
             product_title: item?.name || "",
             product_price: priceProduct.toFixed(0) || 0,
             product_total: item?.quantity || 1,
+            product_wareHouseId: item?.wareHouseId,
           };
         });
       }
@@ -109,7 +110,7 @@ function Checkout() {
           status: 0,
         }).then((res) => {
           if (res) {
-            window.localStorage.removeItem("user-cart");
+            window.localStorage.removeItem("user-cart-b-shop");
             toast.success("Thanh toán thành công.");
             setTimeout(() => {
               navigate("/product");

@@ -86,7 +86,11 @@ function ProductDetail() {
   }, [id]);
 
   const increasingNumber = () => {
-    setQuantity((quantity) => quantity + 1);
+    if (product?.quantity > quantity) {
+      setQuantity((quantity) => quantity + 1);
+    } else {
+      toast.error(`Số lượng sản phẩm tồn kho: ${product?.quantity} `);
+    }
   };
 
   const reduceNumber = () => {
@@ -96,9 +100,12 @@ function ProductDetail() {
   };
 
   const handleAddCart = () => {
-    if (window.localStorage.getItem("user-cart") === null) {
+    if (window.localStorage.getItem("user-cart-b-shop") === null) {
       const dataAddToCart = { ...product, quantity };
-      window.localStorage.setItem("user-cart", JSON.stringify([dataAddToCart]));
+      window.localStorage.setItem(
+        "user-cart-b-shop",
+        JSON.stringify([dataAddToCart])
+      );
       dispatch({
         type: CartAction.CART_UPDATE,
       });
@@ -106,7 +113,7 @@ function ProductDetail() {
         toast.success("Thêm vào giỏ hàng thành công!");
       }
     } else {
-      const cartJSON = window.localStorage.getItem("user-cart");
+      const cartJSON = window.localStorage.getItem("user-cart-b-shop");
       let cart = JSON.parse(cartJSON || "[]");
       let duplicateProduct = false;
       let quantityDuplicate = 0;
@@ -125,7 +132,10 @@ function ProductDetail() {
         cart.push({ ...product, quantity: quantityDuplicate });
       }
 
-      window.localStorage.setItem("user-cart", JSON.stringify([...cart]));
+      window.localStorage.setItem(
+        "user-cart-b-shop",
+        JSON.stringify([...cart])
+      );
       if (addCart) {
         toast.success("Thêm vào giỏ hàng thành công!");
       }
@@ -178,6 +188,9 @@ function ProductDetail() {
                     <div>
                       <b>Thể loại:</b> {category?.title || ""}
                     </div>
+                    <div>
+                      <b>Nhà cung cấp:</b> {product?.supplier?.company || ""}
+                    </div>
                   </div>
                 </div>
 
@@ -199,29 +212,40 @@ function ProductDetail() {
                   )}
                 </div>
 
-                <div className={styles.quantity}>
-                  <div className={styles.text}>Số lượng:</div>
-                  <div className={styles.inputWrapper}>
-                    <div className={styles.btn} onClick={reduceNumber}>
-                      <IoMdArrowDropup className={styles.icon} />
+                {product?.quantity > 0 ? (
+                  <>
+                    <div className={styles.quantity}>
+                      <div className={styles.text}>Số lượng:</div>
+                      <div className={styles.inputWrapper}>
+                        <div className={styles.btn} onClick={reduceNumber}>
+                          <IoMdArrowDropup className={styles.icon} />
+                        </div>
+                        <div className={styles.input}>
+                          <input type="text" value={quantity} />
+                        </div>
+                        <div className={styles.btn} onClick={increasingNumber}>
+                          <IoMdArrowDropdown className={styles.icon} />
+                        </div>
+                      </div>
                     </div>
-                    <div className={styles.input}>
-                      <input type="text" value={quantity} />
-                    </div>
-                    <div className={styles.btn} onClick={increasingNumber}>
-                      <IoMdArrowDropdown className={styles.icon} />
-                    </div>
-                  </div>
-                </div>
 
-                <div className={styles.buy}>
-                  <button className={styles.addCart} onClick={handleAddCart}>
-                    Thêm vào giỏ hàng
-                  </button>
-                  <button className={styles.buyProduct} onClick={buyNow}>
-                    Mua hàng
-                  </button>
-                </div>
+                    <div className={styles.buy}>
+                      <button
+                        className={styles.addCart}
+                        onClick={handleAddCart}
+                      >
+                        Thêm vào giỏ hàng
+                      </button>
+                      <button className={styles.buyProduct} onClick={buyNow}>
+                        Mua hàng
+                      </button>
+                    </div>
+                  </>
+                ) : (
+                  <div className={styles.outOfStock}>
+                    <span>Hết hàng</span>
+                  </div>
+                )}
               </div>
             </div>
 

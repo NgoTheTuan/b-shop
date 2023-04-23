@@ -106,7 +106,6 @@ function Information() {
   }, [id]);
 
   const handleFileUpload = (file) => {
-    console.log(file);
     const files = file.target.files[0];
     setFileUpload(files);
     const base64 = convertFileToBase64(files);

@@ -29,8 +29,8 @@ function Cart() {
   ];
 
   useEffect(() => {
-    if (window.localStorage.getItem("user-cart") !== null) {
-      const dataCart = window.localStorage.getItem("user-cart");
+    if (window.localStorage.getItem("user-cart-b-shop") !== null) {
+      const dataCart = window.localStorage.getItem("user-cart-b-shop");
       setData(JSON.parse(dataCart || "[]"));
       handleTotalMoney(JSON.parse(dataCart || "[]"));
     }
@@ -43,7 +43,7 @@ function Cart() {
   }, [data?.length]);
 
   const setDataLocalStorage = (data) => {
-    window.localStorage.setItem("user-cart", JSON.stringify([...data]));
+    window.localStorage.setItem("user-cart-b-shop", JSON.stringify([...data]));
   };
 
   const minusQuantity = (id) => {
