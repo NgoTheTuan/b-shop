@@ -16,6 +16,7 @@ function Checkout() {
   const setting = useSelector((state) => state.setting);
   const [data, setData] = useState([]);
   const [totalMoney, setTotalMoney] = useState(0);
+  const [methodPayment, setMethodPayment] = useState("offline");
 
   const breadcrumb = [
     {
@@ -100,7 +101,7 @@ function Checkout() {
           phone: values.phone || "",
           adress: values.address || "",
           note: values.note || "",
-          payment_type: "offline",
+          payment_type: methodPayment,
           total_ship: Number(setting?.section?.shop_ship || 0),
           products: dataProduct,
           total_money:
@@ -288,8 +289,38 @@ function Checkout() {
               </div>
 
               <div className={styles.paymentMethods}>
-                <div className={styles.name}>Phương thức</div>
-                <div className={styles.method}>Thanh toán khi nhận hàng</div>
+                <div className={styles.name}>Phương thức thanh toán</div>
+                <div className={styles.method}>
+                  <label>
+                    <input
+                      type="radio"
+                      value="offline"
+                      name="payment"
+                      onChange={() => setMethodPayment("offline")}
+                      checked={methodPayment === "offline"}
+                    />{" "}
+                    Thanh toán khi nhận hàng
+                  </label>
+                </div>
+                <br />
+                <div className={styles.method}>
+                  <label>
+                    <input
+                      type="radio"
+                      value="online"
+                      name="payment"
+                      onChange={() => setMethodPayment("online")}
+                      checked={methodPayment === "online"}
+                    />{" "}
+                    Chuyển khoản
+                  </label>
+                </div>
+                <div className={styles.bank}>
+                  Ngân hàng: <b>{setting?.section?.shop_bank} </b>
+                </div>
+                <div className={styles.acountNumber}>
+                  Số tài khoản: <b>{setting?.section?.shop_accountNumber} </b>
+                </div>
               </div>
 
               <div className={styles.total}>

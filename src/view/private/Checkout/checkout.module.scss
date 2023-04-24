@@ -134,8 +134,19 @@
             }
 
             .method{
+                label{
 
+                    display: flex;
+                    align-items: center;
+                    gap: 10px
+                }
             }
+
+            .bank,.acountNumber{
+                padding-left: 25px;
+                padding-top: 10px;
+            }
+
         }
 
         .total{
