@@ -321,6 +321,9 @@ function Checkout() {
                 <div className={styles.acountNumber}>
                   Số tài khoản: <b>{setting?.section?.shop_accountNumber} </b>
                 </div>
+                <div className={styles.acountNumber}>
+                  Chủ tài khoản: <b>{setting?.section?.shop_bankName} </b>
+                </div>
               </div>
 
               <div className={styles.total}>
