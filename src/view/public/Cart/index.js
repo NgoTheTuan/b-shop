@@ -74,6 +74,20 @@ function Cart() {
     handleTotalMoney(dataCart || []);
   };
 
+  const handleQuantity = (e, id) => {
+    const quantityChange = Number(e.target.value);
+    const dataCart = data.map((item) => {
+      if (item?._id === id) {
+        item.quantity = quantityChange;
+      }
+      return item;
+    });
+
+    setData(dataCart || []);
+    setDataLocalStorage(dataCart || []);
+    handleTotalMoney(dataCart || []);
+  };
+
   const handleRemoveCart = (id) => {
     const dataRemoveCart = data.filter((item) => item?._id !== id && item);
     setData(dataRemoveCart);
@@ -162,7 +176,11 @@ function Cart() {
                         >
                           -
                         </button>
-                        <input type="number" value={item?.quantity} readOnly />
+                        <input
+                          type="number"
+                          value={item?.quantity}
+                          onChange={(e) => handleQuantity(e, item?._id)}
+                        />
                         <button
                           className={styles.plus}
                           onClick={() => plusQuantity(item?._id)}

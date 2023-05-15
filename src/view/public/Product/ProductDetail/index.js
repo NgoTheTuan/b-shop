@@ -94,6 +94,16 @@ function ProductDetail() {
     }
   };
 
+  const handleQuantity = (e) => {
+    const quantityChange = Number(e.target.value);
+    if (product?.quantity >= quantityChange) {
+      setQuantity(quantityChange);
+    } else {
+      setQuantity(product?.quantity);
+      toast.error(`Số lượng sản phẩm tồn kho: ${product?.quantity} `);
+    }
+  };
+
   const reduceNumber = () => {
     if (quantity > 1) {
       setQuantity((quantity) => quantity - 1);
@@ -222,7 +232,11 @@ function ProductDetail() {
                           <IoMdArrowDropup className={styles.icon} />
                         </div>
                         <div className={styles.input}>
-                          <input type="text" value={quantity} />
+                          <input
+                            type="number"
+                            value={quantity}
+                            onChange={(e) => handleQuantity(e)}
+                          />
                         </div>
                         <div className={styles.btn} onClick={increasingNumber}>
                           <IoMdArrowDropdown className={styles.icon} />
