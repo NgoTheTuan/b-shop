@@ -1,7 +1,6 @@
 import styles from "./navbarmenuproductmobile.module.scss";
 import { useEffect, useState } from "react";
 import { CategoriyService } from "../../network/categoryService";
-import { RiMenuUnfoldFill } from "react-icons/ri";
 import { HiChevronRight } from "react-icons/hi";
 import { RxDot } from "react-icons/rx";
 import { Link } from "react-router-dom";

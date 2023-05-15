@@ -45,4 +45,50 @@ export const ProductService = {
       });
     });
   },
+
+  getProductPreview: async (data) => {
+    return new Promise((resolve) => {
+      Request.send({
+        path: "/productReview/statistics",
+        method: "POST",
+        data: data,
+      }).then((res) => {
+        if (res.success) {
+          return resolve(res);
+        } else {
+          return resolve(false);
+        }
+      });
+    });
+  },
+  getProductPreviewData: async (data) => {
+    return new Promise((resolve) => {
+      Request.send({
+        path: "/productReview/getByProduct",
+        method: "POST",
+        data: data,
+      }).then((res) => {
+        if (res.success) {
+          return resolve(res);
+        } else {
+          return resolve(false);
+        }
+      });
+    });
+  },
+  createProductPreview: async (data) => {
+    return new Promise((resolve) => {
+      Request.send({
+        path: "/productReview",
+        method: "POST",
+        data: data,
+      }).then((res) => {
+        if (res.success) {
+          return resolve(res);
+        } else {
+          return resolve(false);
+        }
+      });
+    });
+  },
 };

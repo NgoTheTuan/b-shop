@@ -1,16 +1,14 @@
 import styles from "./header.module.scss";
 import { FaSearch } from "react-icons/fa";
-import { BiChevronDown } from "react-icons/bi";
 import { FiMenu, FiUser } from "react-icons/fi";
 import { BsHandbag } from "react-icons/bs";
 import { SlClose } from "react-icons/sl";
-
+import { BsPersonCircle } from "react-icons/bs";
 import { GoChevronDown, GoChevronRight } from "react-icons/go";
 import { CategoriyService } from "../../../network/categoryService";
 import { useEffect, useState, useRef } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { HiOutlineUserCircle } from "react-icons/hi";
 import CartAction from "../../../store/actions/cart";
 import AuthAction from "../../../store/actions/auth";
 import NoData from "../../../components/noData";
@@ -42,24 +40,24 @@ function Header() {
   const menuMobileBg = useRef(null);
 
   useEffect(() => {
-    if (location.pathname === "/") {
+    if (location?.pathname === "/") {
       setPages(allPages.home);
-    } else if (location.pathname.includes(allPages.about)) {
+    } else if (location?.pathname.includes(allPages.about)) {
       setPages(allPages.about);
-    } else if (location.pathname.includes(allPages.product)) {
+    } else if (location?.pathname.includes(allPages.product)) {
       setPages(allPages.product);
-    } else if (location.pathname.includes(allPages.news)) {
+    } else if (location?.pathname.includes(allPages.news)) {
       setPages(allPages.news);
-    } else if (location.pathname.includes(allPages.map)) {
+    } else if (location?.pathname.includes(allPages.map)) {
       setPages(allPages.map);
-    } else if (location.pathname.includes(allPages.contact)) {
+    } else if (location?.pathname.includes(allPages.contact)) {
       setPages(allPages.contact);
     } else {
       setPages(allPages.page);
     }
 
     closeMenuMobile();
-  }, [location.pathname]);
+  }, [location?.pathname]);
 
   const onClickMenu = (e, id) => {
     e.preventDefault();
@@ -196,7 +194,7 @@ function Header() {
                       {auth?.avatar ? (
                         <img src={auth?.avatar || ""} alt="" />
                       ) : (
-                        <HiOutlineUserCircle className={styles.icon} />
+                        <BsPersonCircle className={styles.icon} />
                       )}
                     </Link>
 

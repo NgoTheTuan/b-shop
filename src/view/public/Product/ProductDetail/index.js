@@ -13,6 +13,7 @@ import toast from "react-hot-toast";
 import SettingAction from "../../../../store/actions/setting";
 import CartAction from "../../../../store/actions/cart";
 import { useDispatch, useSelector } from "react-redux";
+import ProductDetailPreview from "./productDetailPreview";
 
 function ProductDetail() {
   const { id } = useParams();
@@ -261,6 +262,10 @@ function ProductDetail() {
                   }}
                 ></span>
               </div>
+            </div>
+
+            <div>
+              <ProductDetailPreview />
             </div>
           </div>
         </div>
