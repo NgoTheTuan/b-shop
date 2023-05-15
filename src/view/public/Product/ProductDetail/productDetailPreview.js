@@ -18,7 +18,7 @@ function ProductDetailPreview() {
   const [dataPreview, setDataPreview] = useState([]);
   const [dataPreviewPage, setDataPreviewPage] = useState([]);
   const [page, setPage] = useState(0);
-  const rowsPerPage = 2;
+  const rowsPerPage = 5;
 
   const [total, setTotal] = useState(0);
   const [previewCount, setPreviewCount] = useState({});
@@ -27,6 +27,7 @@ function ProductDetailPreview() {
   const [starCommentText, setStarCommentText] = useState("");
 
   const [loadData, setLoadData] = useState(false);
+  const [checkCommentUser, setCheckCommentUser] = useState(true);
 
   useEffect(() => {
     (async function () {
@@ -57,6 +58,17 @@ function ProductDetailPreview() {
       });
     })();
   }, [activeStar, loadData]);
+
+  useEffect(() => {
+    if (user?._id && dataPreview?.length > 0) {
+      const findComment = dataPreview.find(
+        (item) => item?.userId === user?._id
+      );
+      if (findComment) {
+        setCheckCommentUser(false);
+      }
+    }
+  }, [user?._id, dataPreview]);
 
   const handlePageChange = (pageNumber) => {
     setPage(pageNumber - 1);
@@ -197,7 +209,7 @@ function ProductDetailPreview() {
           </div>
         </div>
 
-        {Object.keys(user).length > 0 && (
+        {checkCommentUser && Object.keys(user).length > 0 && (
           <div className={styles.wapperCreateComment}>
             <div className={styles.item}>
               <div className={styles.avatar}>
@@ -254,8 +266,10 @@ function ProductDetailPreview() {
               ? dataPreviewPage.map((item, index) => (
                   <div className={styles.item} key={item?._id}>
                     <div className={styles.avatar}>
-                      {item?.user?.user_avatar && (
+                      {item?.user?.user_avatar ? (
                         <img src={item?.user?.user_avatar || ""} alt="" />
+                      ) : (
+                        <BsPersonCircle className={styles.iconNoAvatar} />
                       )}
                     </div>
                     <div className={styles.content}>
